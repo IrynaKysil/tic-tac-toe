@@ -112,3 +112,37 @@ body {
 .board.o .cell:not(.x):not(.o):hover::before{
   background-color: rgb(211, 210, 210);
 }
+
+/* WINNING MESSAGE AND BUTTON */
+.winning-msg {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(59, 57, 57, .9);
+  color: white;
+  font-size: 6rem;
+  flex-direction: column;
+}
+
+.winning-msg button {
+  font-size: 3rem;
+  background-color: white;
+  border: 1px solid rgb(59, 57, 57);
+  padding: .25em .5em;
+  cursor: pointer;
+}
+
+.winning-msg button:hover {
+  background-color: rgb(59, 57, 57);
+  color: white;
+  border-color: white;
+}
+
+.winning-msg.show {
+  display: flex;
+}
