@@ -113,7 +113,7 @@ body {
   background-color: rgb(211, 210, 210);
 }
 
-/* WINNING MESSAGE AND BUTTON */
+/* WINNING MESSAGE AND RESET BUTTON */
 .winning-msg {
   position: fixed;
   display: none;
