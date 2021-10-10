@@ -4,9 +4,15 @@ const board = document.getElementById("board");
 const cells = document.querySelectorAll("[data-cell]");
 let oTurn;
 
-cells.forEach(cell => {
-  cell.addEventListener("click", onClick, { once: true })
-});
+startGame();
+
+function startGame() {
+  oTurn = false;
+  cells.forEach(cell => {
+    cell.addEventListener("click", onClick, { once: true })
+  });
+  setBoardHoverClass();
+};
 
 function onClick(event) {
   //console.log("The cell is clicked!");
@@ -29,4 +35,4 @@ function setBoardHoverClass() {
   board.classList.remove(X_CLASS);
   board.classList.remove(O_CLASS);
   oTurn ? board.classList.add(O_CLASS) : board.classList.add(X_CLASS);
-}
+};
