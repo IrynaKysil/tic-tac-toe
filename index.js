@@ -1,5 +1,6 @@
 const O_CLASS = "o";
 const X_CLASS = "x";
+const board = document.getElementById("board");
 const cells = document.querySelectorAll("[data-cell]");
 let oTurn;
 
@@ -13,6 +14,7 @@ function onClick(event) {
   const currentClass = oTurn ? O_CLASS : X_CLASS;
   placeMark(cell, currentClass);
   switchTurns();
+  setBoardHoverClass();
 };
 
 function placeMark(cell, currentClass) {
@@ -22,3 +24,9 @@ function placeMark(cell, currentClass) {
 function switchTurns() {
   oTurn = !oTurn;
 };
+
+function setBoardHoverClass() {
+  board.classList.remove(X_CLASS);
+  board.classList.remove(O_CLASS);
+  oTurn ? board.classList.add(O_CLASS) : board.classList.add(X_CLASS);
+}
