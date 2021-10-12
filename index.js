@@ -4,24 +4,31 @@ const WINNING_COMBINATIONS = [
   [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
 ];
 const winningMessageText = document.querySelector("[data-winning-msg-text]");
-
 const board = document.getElementById("board");
 const winningMessageElement = document.getElementById("winningMsg");
 const cells = document.querySelectorAll("[data-cell]");
 let oTurn;
+const resetButton = document.getElementById("resetButton");
 
 startGame();
+
+resetButton.addEventListener("click", startGame);
 
 function startGame() {
   oTurn = false;
   cells.forEach(cell => {
+    cell.classList.remove(X_CLASS);
+    cell.classList.remove(O_CLASS);
+    cell.removeEventListener("click", onClick);
     cell.addEventListener("click", onClick, { once: true })
   });
   setBoardHoverClass();
+  winningMessageElement.classList.remove("show");
 };
 
 function onClick(event) {
   //console.log("The cell is clicked!");
+
   const cell = event.target;
   const currentClass = oTurn ? O_CLASS : X_CLASS;
 
